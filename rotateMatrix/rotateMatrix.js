@@ -1,28 +1,45 @@
+// function rotate(matrix, size){
+
+//   console.log('before: ',matrix);
+
+//   for (var layer = 0; layer < size; layer++) {
+//     debugger
+//     for (var i = layer; i < size - layer - 1; i++) {
+//       var top = matrix[layer][i]; // save top
+//       //left - > top
+//       matrix[layer][i] = matrix[size - i - 1][layer];
+
+//       // bottom -> left
+//       matrix[size - i - 1][layer] = matrix[size - layer - 1][size - i - 1];
+
+//       //right -> bottom
+//       matrix[size - layer - 1][size - i - 1] = matrix[i][size - layer - 1];
+
+//       // top -> right
+//       matrix[i][size - layer - 1] = top;
+//     }
+
+//   }
+
+//   return matrix;
+
+// }
+
 function rotate(matrix, size){
 
-  console.log('before: ',matrix);
-
-  for (var layer = 0; layer < size; layer++) {
-    debugger
-    for (var i = layer; i < size - layer - 1; i++) {
-      var top = matrix[layer][i]; // save top
-      //left - > top
-      matrix[layer][i] = matrix[size - i - 1][layer];
-
-      // bottom -> left
-      matrix[size - i - 1][layer] = matrix[size - layer - 1][size - i - 1];
-
-      //right -> bottom
-      matrix[size - layer - 1][size - i - 1] = matrix[i][size - layer - 1];
-
-      // top -> right
-      matrix[i][size - layer - 1] = top;
+  let rotatedMatrix = [];
+  let count = size-1;
+  while(matrix[0].length > 0){
+    count = size-1;
+    let temp = [];
+    while (count > -1){
+      temp.push(matrix[count].pop());
+      count -= 1;
     }
-
+    rotatedMatrix.unshift(temp);
   }
 
-  return matrix;
-
+  return rotatedMatrix;
 }
 
 console.log(rotate([
