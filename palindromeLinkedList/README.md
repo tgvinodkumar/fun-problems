@@ -1,0 +1,1 @@
+check if the given linked list is a palindrome or not
